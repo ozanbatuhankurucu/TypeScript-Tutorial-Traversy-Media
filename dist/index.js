@@ -93,4 +93,5 @@ const person1 = {
     surname: 'John',
     age: 23
 };
-person1.surname = 'Doe'; // error
+let addFn = (a, b) => a + b;
+let subtractFn = (a, b) => a - b;

@@ -25,7 +25,7 @@ let people: [string, number][] = [
 
 // Union is a type that can be any of the types in the union
 
-let productID: number | string = 1
+let productID: number | string | boolean = 1
 productID = '1'
 
 // Enum is a way to define a set of named constants.
@@ -141,4 +141,12 @@ const person1: Person = {
   age: 23
 }
 
-person1.surname = 'Doe' // error
+// Function Interface
+// Function interfaces are used to define the shape of a function
+
+interface Calculation {
+  (a: number, b: number): number
+}
+
+let addFn: Calculation = (a, b) => a + b
+let subtractFn: Calculation = (a, b) => a - b
