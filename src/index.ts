@@ -125,3 +125,20 @@ add9 = (a, b) => ({ a, b })
 let add10: (a: number, b: number) => (c: number) => number
 
 add10 = (a, b) => (c) => a + b + c
+
+// Interface
+// Interfaces are a way to define the shape of an object
+
+// readonly means that property cannot be changed
+interface Person {
+  name?: string
+  readonly surname: string
+  age: number
+}
+
+const person1: Person = {
+  surname: 'John',
+  age: 23
+}
+
+person1.surname = 'Doe' // error

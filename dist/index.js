@@ -89,3 +89,8 @@ add9 = (a, b) => ({ a, b });
 // Function Types with Function Types
 let add10;
 add10 = (a, b) => (c) => a + b + c;
+const person1 = {
+    surname: 'John',
+    age: 23
+};
+person1.surname = 'Doe'; // error
