@@ -63,3 +63,12 @@ let user: User = {
   name: 'John',
   age: null
 }
+
+// Type Assertion is a way to tell the compiler that the value has a certain type
+// when using TypeScript with JSX, only as-style assertions are allowed
+// JSX ile birlikte kullanirken sadece as syntaxina izin verilir.
+
+let cid: any = 'a'
+// let customerId = <number>customerId
+let customerId = cid as number
+//  customerId type is number anymore
