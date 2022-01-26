@@ -95,15 +95,32 @@ const person1 = {
 };
 let addFn = (a, b) => a + b;
 let subtractFn = (a, b) => a - b;
-// Classes
+// Classes & Data Modifiers
+// Classes are a way to define a type that represents an object
+// Data modifiers are used to modify the data of an object
 class Person1 {
-    constructor(name, age) {
+    constructor(name, surname, age) {
         this.name = name;
+        this.surname = surname;
         this.age = age;
     }
     greet() {
-        return `Hello, ${this.name}`;
+        return `Hello, that is ${this.name + this.surname} her/his age is ${this.age}`;
     }
 }
-const person2 = new Person1('John', 23);
-const person3 = new Person1('Jane', 24);
+class Student extends Person1 {
+    constructor(name, surname, age, isGraduated) {
+        super(name, surname, age);
+        this.isGraduated = isGraduated;
+    }
+    nameWithIsGraduated() {
+        return `${this.name} ${this.surname} is ${this.isGraduated ? 'graduated' : 'not graduated'}`;
+    }
+}
+const person2 = new Person1('Furkan', 'Demirtaş', 23);
+const person3 = new Person1('Ahmet', 'Uslu', 24);
+const person4 = new Student('Devrim', 'Özkan', 21, false);
+const person5 = new Student('Ozan Batuhan', 'Kurucu', 23, true);
+person5.name = 'aa'; // Property 'name' is protected and only accessible within class 'Person1' and its subclasses.
+person5.age = 5; // Property 'age' is private and only accessible within class 'Person1'.
+person5.surname = 'Ozdemir'; // Property 'surname' is public and can be accessed from outside of the class.
