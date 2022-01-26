@@ -95,3 +95,15 @@ const person1 = {
 };
 let addFn = (a, b) => a + b;
 let subtractFn = (a, b) => a - b;
+// Classes
+class Person1 {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    greet() {
+        return `Hello, ${this.name}`;
+    }
+}
+const person2 = new Person1('John', 23);
+const person3 = new Person1('Jane', 24);

@@ -150,3 +150,22 @@ interface Calculation {
 
 let addFn: Calculation = (a, b) => a + b
 let subtractFn: Calculation = (a, b) => a - b
+
+// Classes
+
+class Person1 {
+  name: string
+  age: number
+
+  constructor(name: string, age: number) {
+    this.name = name
+    this.age = age
+  }
+
+  greet(): string {
+    return `Hello, ${this.name}`
+  }
+}
+
+const person2 = new Person1('John', 23)
+const person3 = new Person1('Jane', 24)
