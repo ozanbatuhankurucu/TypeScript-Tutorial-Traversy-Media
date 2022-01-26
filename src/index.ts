@@ -50,3 +50,16 @@ enum Direction2 {
 }
 
 console.log(Direction2.Left) // Left
+
+// Objects
+
+type User = {
+  name: string
+  age: number | null
+  address?: string // ? means optional
+}
+
+let user: User = {
+  name: 'John',
+  age: null
+}

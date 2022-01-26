@@ -42,3 +42,7 @@ var Direction2;
     Direction2["Right"] = "Right";
 })(Direction2 || (Direction2 = {}));
 console.log(Direction2.Left); // Left
+let user = {
+    name: 'John',
+    age: null
+};
