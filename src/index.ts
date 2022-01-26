@@ -68,7 +68,60 @@ let user: User = {
 // when using TypeScript with JSX, only as-style assertions are allowed
 // JSX ile birlikte kullanirken sadece as syntaxina izin verilir.
 
-let cid: any = 'a'
+let cid: any = 1
 // let customerId = <number>customerId
 let customerId = cid as number
 //  customerId type is number anymore
+
+// Functions
+
+function add(a: number, b: number): number {
+  return a + b
+}
+
+// Optional Parameters
+function add2(a: number, b?: number): number {
+  return a + (b || 0)
+}
+
+// Default Parameters
+function add3(a: number, b: number = 0): number {
+  return a + b
+}
+
+// Rest Parameters
+// rest kalan diger parametrelerin bir dizi olarak ifade edilmesidir.
+function add4(a: number, b: number, ...rest: number[]): number {
+  return a + b + rest.reduce((a, b) => a + b, 0)
+}
+add4(1, 2, 3, 4, 5) // 15
+
+// Function Types
+let add5: (a: number, b: number) => number
+
+add5 = (a, b) => a + b
+
+// Function Types with Union Types
+let add6: (a: number, b: number) => number | string
+
+add6 = (a, b) => a + b
+
+// Function Types with Array Types
+let add7: (a: number, b: number) => number[]
+
+add7 = (a, b) => [a + b]
+
+// Function Types with Tuple Types
+let add8: (a: number, b: number) => [number, number]
+
+add8 = (a, b) => [a + b, a - b]
+
+// Function Types with Object Types
+let add9: (a: number, b: number) => { a: number; b: number }
+
+add9 = (a, b) => ({ a, b })
+
+// Function Types with Function Types
+let add10: (a: number, b: number) => (c: number) => number
+
+add10 = (a, b) => (c) => a + b + c

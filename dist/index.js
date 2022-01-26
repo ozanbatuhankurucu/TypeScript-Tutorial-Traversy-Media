@@ -49,7 +49,43 @@ let user = {
 // Type Assertion is a way to tell the compiler that the value has a certain type
 // when using TypeScript with JSX, only as-style assertions are allowed
 // JSX ile birlikte kullanirken sadece as syntaxina izin verilir.
-let cid = 'a';
+let cid = 1;
 // let customerId = <number>customerId
 let customerId = cid;
 //  customerId type is number anymore
+// Functions
+function add(a, b) {
+    return a + b;
+}
+// Optional Parameters
+function add2(a, b) {
+    return a + (b || 0);
+}
+// Default Parameters
+function add3(a, b = 0) {
+    return a + b;
+}
+// Rest Parameters
+// rest kalan diger parametrelerin bir dizi olarak ifade edilmesidir.
+function add4(a, b, ...rest) {
+    return a + b + rest.reduce((a, b) => a + b, 0);
+}
+add4(1, 2, 3, 4, 5); // 15
+// Function Types
+let add5;
+add5 = (a, b) => a + b;
+// Function Types with Union Types
+let add6;
+add6 = (a, b) => a + b;
+// Function Types with Array Types
+let add7;
+add7 = (a, b) => [a + b];
+// Function Types with Tuple Types
+let add8;
+add8 = (a, b) => [a + b, a - b];
+// Function Types with Object Types
+let add9;
+add9 = (a, b) => ({ a, b });
+// Function Types with Function Types
+let add10;
+add10 = (a, b) => (c) => a + b + c;
