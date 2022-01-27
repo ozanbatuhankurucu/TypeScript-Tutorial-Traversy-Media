@@ -142,3 +142,22 @@ class Employee extends PersonForInterface {
 }
 const employee = new Employee('Ozan Batuhan', 'Kurucu', 'Software Engineering');
 employee.getDepartment(); // Employee name is Ozan Batuhan Kurucu and department is Software Engineering
+// Generics
+// Generics are a way to specify the type of the data that an object or function accepts
+function getArray(input) {
+    return input;
+}
+const numbersArray = getArray([1, 2, 3]);
+const namesArray = getArray(['John', 'Jane']);
+numbersArray.push('5'); // Error:  Argument of type string is not assignable to parameter of type number[]
+namesArray.push(5); // Error:  Argument of type number is not assignable to parameter of type string[]
+// create useState function with generics
+function useState(initialState) {
+    let state = initialState;
+    function setState(newState) {
+        state = newState;
+    }
+    return [state, setState];
+}
+const [count, setCount] = useState(0);
+setCount('a'); // Error: Type '"a"' is not assignable to type 'number'.
