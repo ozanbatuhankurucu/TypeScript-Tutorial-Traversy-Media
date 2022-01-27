@@ -211,6 +211,25 @@ class PersonForInterface implements PersonInterface {
   }
 
   getName(): string {
-    return this.name + this.surname
+    return `${this.name} ${this.surname}`
   }
 }
+
+// Extending Classes(Subclasses)
+
+class Employee extends PersonForInterface {
+  department: string
+
+  constructor(name: string, surname: string, department: string) {
+    super(name, surname) // super is used to call the constructor of the parent class
+    this.department = department
+  }
+
+  getDepartment(): string {
+    return `Employee name is ${this.getName()} and department is ${this.department}`
+  }
+}
+
+const employee = new Employee('Ozan Batuhan', 'Kurucu', 'Software Engineering')
+
+employee.getDepartment() // Employee name is Ozan Batuhan Kurucu and department is Software Engineering
