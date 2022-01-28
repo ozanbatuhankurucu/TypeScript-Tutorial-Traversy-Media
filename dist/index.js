@@ -8,7 +8,7 @@ let userName = 'John';
 let isLoggedIn = true;
 let message = 'Hello'; // any is a type that can be anything
 // TypeScript Arrays are: Array<T>
-// İki farklı şekildede tanımlayabiliriz.
+// Array types can be written in one of two ways. These are: Array<T> and T[]
 let ids = [1, 2, 3];
 let names = ['John', 'Jane'];
 // TypeScript Tuples are arrays with fixed number of elements
@@ -24,8 +24,7 @@ let productID = 1;
 productID = '1';
 // Enum is a way to define a set of named constants.
 // There are three types of enums: Numeric, String, Heterogeneous
-// const gibidir fakat bir takim avantajlari vardir okunurluk, performans gibi.
-// Değer verilmediği zaman değerleri sıralı olarak atanır 0, 1, 2, 3 şeklinde.
+// When no value is given, the values are assigned sequentially as 0, 1, 2, 3.
 var Direction1;
 (function (Direction1) {
     Direction1[Direction1["Up"] = 0] = "Up";
@@ -48,7 +47,6 @@ let user = {
 };
 // Type Assertion is a way to tell the compiler that the value has a certain type
 // when using TypeScript with JSX, only as-style assertions are allowed
-// JSX ile birlikte kullanirken sadece as syntaxina izin verilir.
 let cid = 1;
 // let customerId = <number>customerId
 let customerId = cid;
@@ -66,7 +64,7 @@ function add3(a, b = 0) {
     return a + b;
 }
 // Rest Parameters
-// rest kalan diger parametrelerin bir dizi olarak ifade edilmesidir.
+// rest is a special type that represents an array of all the remaining arguments
 function add4(a, b, ...rest) {
     return a + b + rest.reduce((a, b) => a + b, 0);
 }
@@ -117,10 +115,13 @@ class Student extends Person1 {
         return `${this.name} ${this.surname} is ${this.isGraduated ? 'graduated' : 'not graduated'}`;
     }
 }
-const person2 = new Person1('Furkan', 'Demirtaş', 23);
-const person3 = new Person1('Ahmet', 'Uslu', 24);
-const person4 = new Student('Devrim', 'Özkan', 21, false);
-const person5 = new Student('Ozan Batuhan', 'Kurucu', 23, true);
+const person2 = new Person1('Furkan', 'Demirtaş', 25);
+const person3 = new Person1('Ahmet', 'Uslu', 35);
+const student1 = new Student('Devrim', 'Özkan', 21, false);
+const student2 = new Student('Ozan Batuhan', 'Kurucu', 25, true);
+// student2.name = 'aa' // Error: Property 'name' is protected and only accessible within class 'Person1' and its subclasses.
+// student2.age = 5 // Error : Property 'age' is private and only accessible within class 'Person1'.
+student2.surname = 'Ozdemir'; // Property 'surname' is public and can be accessed from outside of the class.
 class PersonForInterface {
     constructor(name, surname) {
         this.name = name;
@@ -149,8 +150,8 @@ function getArray(input) {
 }
 const numbersArray = getArray([1, 2, 3]);
 const namesArray = getArray(['John', 'Jane']);
-numbersArray.push('5'); // Error:  Argument of type string is not assignable to parameter of type number[]
-namesArray.push(5); // Error:  Argument of type number is not assignable to parameter of type string[]
+// numbersArray.push('5') // Error:  Argument of type string is not assignable to parameter of type number[]
+// namesArray.push(5) // Error:  Argument of type number is not assignable to parameter of type string[]
 // create useState function with generics
 function useState(initialState) {
     let state = initialState;
@@ -160,4 +161,4 @@ function useState(initialState) {
     return [state, setState];
 }
 const [count, setCount] = useState(0);
-setCount('a'); // Error: Type '"a"' is not assignable to type 'number'.
+// setCount('a') // Error: Type '"a"' is not assignable to type 'number'.
